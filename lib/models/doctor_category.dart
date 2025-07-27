@@ -1,11 +1,19 @@
+import 'package:flutter/material.dart';
+
 class DoctorCategory {
-  final String name;
+  final String categoryName;
+  final String categoryIconUrl;
   static List<DoctorCategory> categories = [
-    DoctorCategory('Brain'),
-    DoctorCategory('Heart'),
-    DoctorCategory('Skin'),
-    DoctorCategory('Eye'),
-    DoctorCategory('Bones'),
+    DoctorCategory(categoryName: 'Brain'),
+    DoctorCategory(categoryName: 'Heart'),
+    DoctorCategory(categoryName: 'Skin'),
+    DoctorCategory(categoryName: 'Eye'),
+    DoctorCategory(categoryName: 'Bones'),
   ];
-  DoctorCategory(this.name);
+
+  DoctorCategory({
+    required this.categoryName,
+    this.categoryIconUrl =
+        'https://img.icons8.com/?size=60&id=60687&format=png',
+  });
 }

@@ -11,7 +11,6 @@ class DoctorListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(15),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
@@ -34,7 +33,7 @@ class DoctorListTile extends StatelessWidget {
             // ),
             CircleAvatar(
               backgroundColor: Colors.grey,
-              radius: context.height * 0.06,
+              radius: context.height * 0.05,
               foregroundImage: NetworkImage(doctor.doctorImagePath),
             ),
             SizedBox(width: 16),

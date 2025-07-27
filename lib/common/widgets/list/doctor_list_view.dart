@@ -10,6 +10,8 @@ class DoctorListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
+      physics: BouncingScrollPhysics(),
       itemCount: filteredDoctors.length,
       itemBuilder: (context, index) {
         return DoctorListTile(doctor: filteredDoctors[index]);
