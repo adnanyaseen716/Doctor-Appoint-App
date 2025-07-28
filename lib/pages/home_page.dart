@@ -34,7 +34,9 @@ class _MyHomePageState extends State<HomePage> {
                   children: [
                     CustomHomeAppBar(),
                     SizedBox(height: 10),
-                    TextIconRow(text: 'Categories'),
+                    CustomSearchBar(),
+                    SizedBox(height: 10),
+                    TextIconRow(text: ' Categories'),
 
                     SizedBox(height: 10),
                     Expanded(
@@ -50,7 +52,7 @@ class _MyHomePageState extends State<HomePage> {
                       ),
                     ),
                     // SizedBox(height: 30),
-                    TextIconRow(text: 'Doctors'),
+                    TextIconRow(text: ' Doctors'),
                     Expanded(
                       child: DoctorListView(filteredDoctors: filteredDoctors),
                     ),
@@ -58,6 +60,38 @@ class _MyHomePageState extends State<HomePage> {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//
+
+class CustomSearchBar extends StatelessWidget {
+  const CustomSearchBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 45,
+      child: TextField(
+        decoration: InputDecoration(
+          focusColor: Colors.grey,
+          suffixIcon: Icon(Icons.search, color: AppThem.appMainColor),
+          hintText: 'Search Doctors',
+          hintStyle: TextStyle(color: Colors.grey),
+
+          // filled: true,
+          // fillColor: Colors.grey[200],
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.grey),
           ),
         ),
       ),
@@ -100,32 +134,39 @@ class CustomHomeAppBar extends StatelessWidget {
     var url =
         'https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.jpg?s=612x612&w=0&k=20&c=D14m64UChVZyRhAr6MJW3guo7MKQbKvgNVdKmsgQ_1g=';
     return Row(
-      spacing: 10,
+      // spacing: 10,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
       children: [
         //
-        CircleAvatar(foregroundImage: NetworkImage(url), radius: 30),
-        Column(
-          mainAxisSize: MainAxisSize.min,
+        Row(
           children: [
-            Text('Hi!                        '),
-            Text(
-              'Mr. Adnan',
-              style: Theme.of(
-                context,
-              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+            CircleAvatar(foregroundImage: NetworkImage(url), radius: 30),
+            SizedBox(width: 15),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('Hi!'),
+                Text(
+                  'Mr. Adnan',
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
 
         //
-        const Spacer(),
-        IconButton.outlined(
-          onPressed: () {},
-          icon: const Icon(Icons.search, color: AppThem.appMainColor),
-          style: IconButton.styleFrom(
-            side: BorderSide(color: AppThem.greyColor),
-          ),
-        ),
+        // IconButton.outlined(
+        //   onPressed: () {},
+        //   icon: const Icon(Icons.search, color: AppThem.appMainColor),
+        //   style: IconButton.styleFrom(
+        //     side: BorderSide(color: AppThem.greyColor),
+        //   ),
+        // ),
         IconButton.outlined(
           onPressed: () {},
           icon: const Icon(Icons.notifications, color: AppThem.appMainColor),

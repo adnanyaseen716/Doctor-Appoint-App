@@ -29,7 +29,7 @@ class DoctorCategoryListTile extends StatelessWidget {
               height: 60,
               width: 60,
               decoration: BoxDecoration(
-                color: isSelected ? Colors.blue : Colors.grey[300],
+                color: isSelected ? Colors.blue : Colors.grey,
                 shape: BoxShape.circle,
               ),
 

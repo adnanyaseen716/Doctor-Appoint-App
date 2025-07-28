@@ -14,52 +14,44 @@ class DoctorListTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          // crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Container(
-            //   margin: EdgeInsets.all(8.0),
-            //   width: 60,
-            //   height: 60,
-            //   decoration: BoxDecoration(
-            //     color: Colors.grey,
-
-            //     shape: BoxShape.circle,
-            //     image: DecorationImage(
-            //       image: NetworkImage(doctor.doctorImagePath),
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            // ),
-            CircleAvatar(
-              backgroundColor: Colors.grey,
-              radius: context.height * 0.05,
-              foregroundImage: NetworkImage(doctor.doctorImagePath),
-            ),
-            SizedBox(width: 16),
-            //
-            Column(
-              mainAxisSize: MainAxisSize.min,
+            Row(
               children: [
-                Text(
-                  doctor.doctorName,
-                  style: TextStyle(
-                    fontSize: ResponsiveTextSize().mediumFontSize(context),
-                    fontWeight: FontWeight.bold,
-                  ),
+                CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  radius: context.height * 0.05,
+                  foregroundImage: NetworkImage(doctor.doctorImagePath),
                 ),
-                SizedBox(height: 4),
-                Text(
-                  '${doctor.doctorCategory} Specialist',
-                  style: TextStyle(color: Colors.grey[600]),
-                ),
-                Row(
+                SizedBox(width: 16),
+                //
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.star, color: Colors.yellow, size: 16),
-                    SizedBox(width: 4),
                     Text(
-                      doctor.doctorRating.toString(),
+                      doctor.doctorName,
+                      style: TextStyle(
+                        fontSize: ResponsiveTextSize().mediumFontSize(context),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      '${doctor.doctorCategory} Specialist',
                       style: TextStyle(color: Colors.grey[600]),
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      spacing: 2,
+                      children: [
+                        Icon(Icons.star, color: Colors.yellow, size: 16),
+                        SizedBox(width: 4),
+                        Text(
+                          doctor.doctorRating.toString(),
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -67,11 +59,14 @@ class DoctorListTile extends StatelessWidget {
             ),
 
             //
-            Spacer(),
+            // Spacer(),///////////
             Column(
               spacing: 10,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
                       'Fees: ',
@@ -113,15 +108,3 @@ class DoctorListTile extends StatelessWidget {
     );
   }
 }
-
-
-
-// Card(
-//       margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-//       child: ListTile(
-//         leading: Icon(Icons.person),
-//         title: Text(doctor.name),
-//         subtitle: Text('${doctor.category} Specialist'),
-//         trailing: Icon(Icons.chevron_right),
-//       ),
-//     );
